@@ -3,7 +3,7 @@ FROM debian:trixie-slim
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
 	nano \
-        ntpsec-ntpdate \
+    ntpsec-ntpdate \
 	faketime \
 	python3 \
 	python3-paho-mqtt && \
