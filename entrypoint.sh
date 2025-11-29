@@ -1,11 +1,11 @@
 #!/bin/sh
 set -e
 
-cat << 'EOF' > /usuario/time_drift.sh
+cat << 'EOF' > /agent/time_drift.sh
 #!/bin/bash
 THRESHOLD=300  # segundos
 NTP_SERVER="2.ar.pool.ntp.org"
-LOGFILE="/usuario/time_drift.log"
+LOGFILE="/agent/time_drift.log"
 
 current_ts=$(date +%s)
 ntp_ts=$(ntpdate -q "$NTP_SERVER" 2>/dev/null | grep -o '[+-][0-9]\{1,\}\.[0-9]\{1,\}' | head -1)
@@ -15,7 +15,7 @@ if [[ -z "$ntp_ts" ]]; then
     exit 1
 fi
 
-# valor absoluto sin bc
+# valor absoluto
 offset=$(echo "$ntp_ts" | awk '{print ($1 < 0 ? -$1 : $1)}')
 
 # comparación de flotantes con awk
@@ -24,9 +24,9 @@ if awk "BEGIN {exit !($offset > $THRESHOLD)}"; then
 fi
 EOF
 
-chmod +x /usuario/time_drift.sh
+chmod +x /agent/time_drift.sh
 
-cat << 'EOF' > /usuario/pub-mqtt.py
+cat << 'EOF' > /agent/pub-mqtt.py
 import paho.mqtt.client as mqtt
 
 client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, 'id0001')
