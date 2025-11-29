@@ -65,10 +65,14 @@ Ejemplo de payload:
 
 ```bash
 {
-  "timestamp": "2025-11-29T15:42:10Z",
-  "previous_time": "2025-11-29T15:41:59Z",
-  "current_time": "2025-11-29T15:42:10Z",
-  "drift_seconds": 11.01
+  "event": "time_drift",
+  "offset": 4679.995945,
+  "abs_offset": 4679.995945,
+  "offset": 408.026499,
+  "abs_offset": 408.026499,
+  "threshold": 300,
+  "timestamp": "2025-11-29T15:30:01.109265"
+  "timestamp": "2025-11-29T16:42:00.835518"
 }
 ```
 
