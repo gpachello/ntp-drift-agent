@@ -1,0 +1,33 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto:openssl
+    configs:
+      - source: mqtt_cfg
+        target: /mosquitto/config/mosquitto.conf
+    container_name: mqtt
+    restart: always
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    ports:
+      - 1883:1883
+
+  faketime:
+    build: .
+    container_name: faketime
+    image: faketime
+    hostname: faketime
+    depends_on:
+      - mqtt
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro    # Sync Time
+      - /etc/timezone:/etc/timezone:ro      # Sync TimeZone
+      - './scp/:/scp/'
+
+    restart: "no"
+
+configs:
+  mqtt_cfg:
+    file: ./mosquitto.conf
