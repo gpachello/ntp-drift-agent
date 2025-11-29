@@ -9,12 +9,12 @@ RUN apt-get update -y && \
 	python3-paho-mqtt && \
     rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r usuario && useradd -r -g usuario -d /usuario -s /bin/sh usuario
+RUN groupadd -r agent && useradd -r -g agent -d /agent -s /bin/sh agent
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-USER usuario
-WORKDIR /usuario
+USER agent
+WORKDIR /agent
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
