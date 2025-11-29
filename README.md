@@ -47,7 +47,7 @@ ntp-drift-agent   ntp-drift-agent-ntp-drift-agent   "/usr/local/bin/entr…"   n
 
 **5. Ingresar al contenedor:**
 ```bash
-$ docker compose exec -it ntp-drift-agent bash
+docker compose exec -it ntp-drift-agent bash
 ```
 
 ---
