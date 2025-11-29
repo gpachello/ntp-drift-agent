@@ -56,6 +56,13 @@ $ docker compose exec -it ntp-drift-agent bash
 
 El directorio `/agent/` es el workspace principal.
 
+> [!NOTE]
+> Se puede ejecutar un TEST con el siguiente comando:
+>   ```bash
+> $ faketime HH:MM python3 time_drift.py
+>   ```
+> Reemplazar HH:MM con un valor que exceda los 300 segundos (5 minutos) para que se detecte la desviación de tiempo y se envíe el mensaje al MQTT Broker.
+
 ---
 
 ## 📨 Publicación MQTT
