@@ -1,39 +1,54 @@
 #!/bin/sh
 set -e
 
-cat << 'EOF' > /agent/time_drift.sh
-#!/bin/bash
-THRESHOLD=300  # segundos
-NTP_SERVER="2.ar.pool.ntp.org"
-LOGFILE="/agent/time_drift.log"
-
-current_ts=$(date +%s)
-ntp_ts=$(ntpdate -q "$NTP_SERVER" 2>/dev/null | grep -o '[+-][0-9]\{1,\}\.[0-9]\{1,\}' | head -1)
-
-if [[ -z "$ntp_ts" ]]; then
-    echo "$(date) - ERROR: no se pudo consultar NTP" >> "$LOGFILE"
-    exit 1
-fi
-
-# valor absoluto
-offset=$(echo "$ntp_ts" | awk '{print ($1 < 0 ? -$1 : $1)}')
-
-# comparación de flotantes con awk
-if awk "BEGIN {exit !($offset > $THRESHOLD)}"; then
-    echo "$(date) - ALERTA: desvío de tiempo detectado (${offset}s)" >> "$LOGFILE"
-fi
-EOF
-
-chmod +x /agent/time_drift.sh
-
-cat << 'EOF' > /agent/pub-mqtt.py
+cat << 'EOF' > /agent/time_drift.py
+import subprocess
+import json
+import re
+from datetime import datetime
 import paho.mqtt.client as mqtt
 
-client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, 'id0001')
+THRESHOLD = 300  # segundos
+NTP_SRV = "2.ar.pool.ntp.org"
+MQTT_HOST = "mqtt"
+MQTT_PORT = 1883
+MQTT_TOPIC = "LAB/time_drift/agent1"
 
-client.connect("mqtt", 1883, 60)
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "faketime-check-1")
+client.connect(MQTT_HOST, MQTT_PORT, 60)
 
-client.publish("TEST", "Mensaje de prueba")
+# Consultar Servidor NTP:
+proc = subprocess.run(
+    ["ntpdate", "-q", NTP_SRV],
+    capture_output=True,
+    text=True
+)
+
+output = proc.stdout
+
+# Extraer valor:
+m = re.search(r"[+-]\d+\.\d+", output)
+
+if not m:
+    exit(1)
+
+offset = float(m.group(0))
+abs_offset = abs(offset)
+
+# Comparación:
+if abs_offset > THRESHOLD:
+    payload = {
+        "event": "time_drift",
+        "offset": offset,
+        "abs_offset": abs_offset,
+        "threshold": THRESHOLD,
+        "timestamp": datetime.now().isoformat()
+    }
+
+# Publicar en Broker MQTT
+client.publish(MQTT_TOPIC, json.dumps(payload), qos=1)
+
+# Desconectar:
 client.disconnect()
 EOF
 
