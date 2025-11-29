@@ -36,7 +36,7 @@ if not m:
 offset = float(m.group(0))
 abs_offset = abs(offset)
 
-# Comparación:
+# Comparar datos y generar mensaje
 if abs_offset > THRESHOLD:
     payload = {
         "event": "time_drift",
