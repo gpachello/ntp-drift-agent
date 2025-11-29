@@ -49,7 +49,7 @@ if abs_offset > THRESHOLD:
 # Publicar en Broker MQTT
 client.publish(MQTT_TOPIC, json.dumps(payload), qos=1)
 
-# Desconectar:
+# Desconectar
 client.disconnect()
 EOF
 
