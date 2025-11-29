@@ -22,10 +22,10 @@ Su principal objetivo es actuar como un agente autónomo, ideal para entornos de
 ## 🐳 Uso
 
 **1. Clonar el repositorio:**
-   ```bash
+```bash
 git clone https://github.com/gpachello/ntp-drift-agent.git
 cd ntp-drift-agent
-   ```
+```
 
 **2. Construir y levantar el servicio**
 
@@ -34,22 +34,22 @@ docker compose up -d --build
 ```
 
 **3. Verificá el estado:**
-   ```bash
+```bash
 docker compose ps
-   ```
+```
 
 **4. Deberías ver los servicios ejecutándose:**
-   ```bash
+```bash
 NAME              IMAGE                             COMMAND                  SERVICE           CREATED          STATUS          PORTS
 mqtt              eclipse-mosquitto:openssl         "/docker-entrypoint.…"   mqtt              17 seconds ago   Up 12 seconds   0.0.0.0:1883->1883/tcp
 ntp-drift-agent   ntp-drift-agent-ntp-drift-agent   "/usr/local/bin/entr…"   ntp-drift-agent   15 seconds ago   Up 10 seconds   
-
-  ```
+```
 
 **5. Ingresar al contenedor:**
-   ```bash
+```bash
 $ docker compose exec -it ntp-drift-agent bash
-   ```
+```
+
 ---
 
 ## 📂 Espacio de trabajo
@@ -58,9 +58,9 @@ El directorio `/agent/` es el workspace principal.
 
 > [!NOTE]
 > Se puede ejecutar un TEST con el siguiente comando:
->   ```bash
-> $ faketime HH:MM python3 time_drift.py
->   ```
+> ```bash
+> faketime HH:MM python3 time_drift.py
+> ```
 > Reemplazar HH:MM con un valor que exceda los 300 segundos (5 minutos) para que se detecte la desviación de tiempo y se envíe el mensaje al MQTT Broker.
 
 ---
