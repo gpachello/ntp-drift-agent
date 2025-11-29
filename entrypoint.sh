@@ -13,6 +13,7 @@ NTP_SRV = "2.ar.pool.ntp.org"
 MQTT_HOST = "mqtt"
 MQTT_PORT = 1883
 MQTT_TOPIC = "LAB/time_drift/agent1"
+payload = None
 
 client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "faketime-check-1")
 client.connect(MQTT_HOST, MQTT_PORT, 60)
