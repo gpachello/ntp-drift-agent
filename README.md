@@ -77,13 +77,13 @@ Ejemplo de payload:
 
 ## ⚙️ Variables de entorno
 
-| Variable         | Descripción                       | Valor por defecto         |
-| ---------------- | --------------------------------- | ------------------------- |
-| `THRESHOLD`      | Limite / umbral en segundos       | `300`                     |
-| `ǸTP_SRV`        | Servidor NTP externo              | `2.ar.pool.ntp.org`       |
-| `MQTT_HOST`      | Hostname del broker MQTT          | `localhost`               |
-| `MQTT_PORT`      | Puerto del broker                 | `1883`                    |
-| `MQTT_TOPIC`     | Filtro de mensajes MQTT           | `"LAB/time_drift/agent1"` |
+| Variable         | Descripción                       | Valor por defecto       |
+| ---------------- | --------------------------------- | ----------------------- |
+| `THRESHOLD`      | Limite / umbral en segundos       | `300`                   |
+| `NTP_SRV`        | Servidor NTP externo              | `2.ar.pool.ntp.org`     |
+| `MQTT_HOST`      | Hostname del broker MQTT          | `localhost`             |
+| `MQTT_PORT`      | Puerto del broker                 | `1883`                  |
+| `MQTT_TOPIC`     | Filtro de mensajes MQTT           | `LAB/time_drift/agent1` |
 
 ---
 
