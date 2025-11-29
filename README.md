@@ -1,5 +1,5 @@
 # NTP Drift Agent
-NTP Drift Agent es un contenedor liviano diseñado para detectar desviaciones (drift) en la fecha y hora del sistema y reportarlas mediante MQTT, permitiendo monitoreo externo, auditoría, pruebas de laboratorio y verificación de integridad temporal.
+**NTP Drift Agent** es un contenedor liviano diseñado para detectar desviaciones (drift) en la fecha y hora del sistema y reportarlas mediante **MQTT**, permitiendo monitoreo externo, auditoría, pruebas de laboratorio y verificación de integridad temporal.
 
 Su principal objetivo es actuar como un agente autónomo, ideal para entornos de desarrollo, testing, automatización o simulación, especialmente cuando se utiliza manipulación temporal (e.g. con faketime).
 
@@ -81,7 +81,7 @@ Ejemplo de payload:
 
 ## 🔍 Casos de uso
 
-* LABs de simulación con faketime
+* LABs de simulación con `faketime`
 * Validación de licenciamiento local
 * Monitoreo de deriva temporal en dispositivos embarcados
 * Auditoría de integridad temporal
