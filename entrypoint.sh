@@ -18,7 +18,7 @@ payload = None
 client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "faketime-check-1")
 client.connect(MQTT_HOST, MQTT_PORT, 60)
 
-# Consultar Servidor NTP:
+# Consultar Servidor NTP
 proc = subprocess.run(
     ["ntpdate", "-q", NTP_SRV],
     capture_output=True,
@@ -27,7 +27,7 @@ proc = subprocess.run(
 
 output = proc.stdout
 
-# Extraer valor:
+# Extraer valor
 m = re.search(r"[+-]\d+\.\d+", output)
 
 if not m:
