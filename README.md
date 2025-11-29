@@ -66,13 +66,10 @@ Ejemplo de payload:
 ```bash
 {
   "event": "time_drift",
-  "offset": 4679.995945,
-  "abs_offset": 4679.995945,
-  "offset": 408.026499,
-  "abs_offset": 408.026499,
+  "offset": 394.000908,
+  "abs_offset": 394.000908,
   "threshold": 300,
-  "timestamp": "2025-11-29T15:30:01.109265"
-  "timestamp": "2025-11-29T16:42:00.835518"
+  "timestamp": "2025-11-29T17:05:01.442511"
 }
 ```
 
@@ -80,12 +77,13 @@ Ejemplo de payload:
 
 ## ⚙️ Variables de entorno
 
-| Variable         | Descripción                       | Valor por defecto |
-| ---------------- | --------------------------------- | ----------------- |
-| `MQTT_HOST`      | Hostname del broker MQTT          | `localhost`       |
-| `MQTT_PORT`      | Puerto del broker                 | `1883`            |
-| `MQTT_TOPIC`     | Topic donde publicar eventos      | `ntp/drift`       |
-| `CHECK_INTERVAL` | Intervalo de revisión en segundos | `1`               |
+| Variable         | Descripción                       | Valor por defecto         |
+| ---------------- | --------------------------------- | ------------------------- |
+| `THRESHOLD`      | Limite / umbral en segundos       | `300`                     |
+| `ǸTP_SRV`        | Servidor NTP externo              | `2.ar.pool.ntp.org`       |
+| `MQTT_HOST`      | Hostname del broker MQTT          | `localhost`               |
+| `MQTT_PORT`      | Puerto del broker                 | `1883`                    |
+| `MQTT_TOPIC`     | Filtro de mensajes MQTT           | `"LAB/time_drift/agent1"` |
 
 ---
 
