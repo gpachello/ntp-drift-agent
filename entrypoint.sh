@@ -46,11 +46,11 @@ if abs_offset > THRESHOLD:
         "timestamp": datetime.now().isoformat()
     }
 
-# Publicar en Broker MQTT
-client.publish(MQTT_TOPIC, json.dumps(payload), qos=1)
+    # Publicar en Broker MQTT
+    client.publish(MQTT_TOPIC, json.dumps(payload), qos=1)
 
-# Desconectar
-client.disconnect()
+    # Desconectar
+    client.disconnect()
 EOF
 
 #
