@@ -52,6 +52,12 @@ $ docker compose exec -it ntp-drift-agent bash
    ```
 ---
 
+## 📂 Espacio de trabajo
+
+El directorio `/agent/` es el workspace principal.
+
+---
+
 ## 📨 Publicación MQTT
 
 Por defecto, el agente envía mensajes cuando detecta una variación.
