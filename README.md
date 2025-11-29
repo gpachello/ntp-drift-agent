@@ -33,8 +33,6 @@ cd ntp-drift-agent
 docker compose up -d --build
 ```
 
-El contenedor se inicia, ajusta permisos de directorios y queda ejecutándose.
-
 **3. Verificá el estado:**
    ```bash
 docker compose ps
