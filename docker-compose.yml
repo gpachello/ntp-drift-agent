@@ -1,32 +1,30 @@
 services:
   mqtt:
     image: eclipse-mosquitto:openssl
+    container_name: mqtt
+    restart: always
+    ports:
+      - 1883:1883
     configs:
       - source: mqtt_cfg
         target: /mosquitto/config/mosquitto.conf
-    container_name: mqtt
-    restart: always
-    tty: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-    ports:
-      - 1883:1883
 
-  faketime:
+  ntp-drift-agent:
     build: .
-    container_name: faketime
-    image: faketime
-    hostname: faketime
+    container_name: ntp-drift-agent
     depends_on:
       - mqtt
-
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+      - MQTT_TOPIC=ntp/drift
     volumes:
-      - /etc/localtime:/etc/localtime:ro    # Sync Time
-      - /etc/timezone:/etc/timezone:ro      # Sync TimeZone
-      - './scp/:/scp/'
-
-    restart: "no"
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: unless-stopped
 
 configs:
   mqtt_cfg:
