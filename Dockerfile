@@ -3,10 +3,10 @@ FROM debian:trixie-slim
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
 	nano \
-    ntpsec-ntpdate \
 	faketime \
 	python3 \
-	python3-paho-mqtt && \
+	python3-paho-mqtt \
+	python3-ntplib && \
     rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -r agent && useradd -r -g agent -d /agent -s /bin/sh agent
