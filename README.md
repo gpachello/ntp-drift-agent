@@ -65,6 +65,15 @@ El directorio `/agent/` es el workspace principal.
 
 ---
 
+## Breve descripción de funcionamiento del script `time_drift.py`
+
+1. El script consulta un servidor NTP usando **ntplib** y calcula la diferencia entre la hora local del sistema y la hora proporcionada por el servidor.
+2. Si el desfasaje supera un umbral configurable, envía un mensaje **JSON** a un broker **MQTT** para notificar el evento.
+
+Es un ejemplo simple y extensible de cómo detectar *time drift* y publicar alertas en sistemas distribuidos.
+
+---
+
 ## 📨 Publicación MQTT
 
 Por defecto, el agente envía mensajes cuando detecta una variación.
@@ -78,9 +87,8 @@ Ejemplo de payload:
   "threshold": 300,
   "timestamp": "2025-11-29T17:05:01.442511"
 }
-```
 
----
+```
 
 ## ⚙️ Variables de entorno
 
