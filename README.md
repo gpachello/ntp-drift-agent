@@ -122,7 +122,7 @@ Ejemplo de payload:
 >> “El tiempo es frágil… medir el desvío es esencial.”    
 >> *El único que parece haber leído un libro antes de hablar.*
 >
->> **⚡️ 2. Dr. Emmett Brown**  
+>> **⚡️ 2. Dr. Emmett "Doc" Brown**  
 >> “Un drift de minutos puede mandarte a 1885.”  
 >> *Serio, pero siempre al borde de electrocutarse.*
 >
