@@ -146,8 +146,6 @@ Ejemplo de payload:
 >> “¡Narf! Si esto evita que explotemos, me gusta.”  
 >> *Seriedad: -∞.*
 >
->> *Ningún personaje, científico, viajero temporal o ratón parlante fue lastimado durante la elaboración de este proyecto.*  
->> *Apéndice totalmente innecesario, pero absolutamente indispensable.*
-
-
+> *Ningún personaje, científico, viajero temporal o ratón parlante fue lastimado durante la elaboración de este proyecto.*  
+> *Apéndice totalmente innecesario, pero absolutamente indispensable.*
 
