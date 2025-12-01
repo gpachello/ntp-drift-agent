@@ -67,7 +67,7 @@ El directorio `/agent/` es el workspace principal.
 
 ## Breve descripción de funcionamiento del script `time_drift.py`
 
-1. El script consulta un servidor NTP usando **ntplib** y calcula la diferencia entre la hora local del sistema y la hora proporcionada por el servidor.
+1. El script consulta un servidor NTP usando **ntplib** y calcula la diferencia entre la hora local del sistema y la hora proporcionada por el servidor NTP.
 2. Si el desfasaje supera un umbral configurable, envía un mensaje **JSON** a un broker **MQTT** para notificar el evento.
 
 Es un ejemplo simple y extensible de cómo detectar *time drift* y publicar alertas en sistemas distribuidos.
