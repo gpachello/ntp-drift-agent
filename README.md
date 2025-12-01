@@ -118,7 +118,7 @@ Ejemplo de payload:
 >[!Note]
 >> Porque ninguna herramienta de sincronización temporal está completa sin la validación de figuras clave en la historia del tiempo (y del humor), aquí presentamos testimonios clasificados por su nivel de seriedad:
 >
->> **📚 H. 1. H. George Wells**  
+>> **📚 1. H. George Wells**  
 >> “El tiempo es frágil… medir el desvío es esencial.”    
 >> *El único que parece haber leído un libro antes de hablar.*
 >
