@@ -2,10 +2,9 @@
 set -e
 
 cat << 'EOF' > /agent/time_drift.py
-import subprocess
 import json
-import re
 from datetime import datetime
+import ntplib
 import paho.mqtt.client as mqtt
 
 THRESHOLD = 300  # segundos
@@ -18,22 +17,16 @@ payload = None
 client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "faketime-check-1")
 client.connect(MQTT_HOST, MQTT_PORT, 60)
 
-# Consultar Servidor NTP
-proc = subprocess.run(
-    ["ntpdate", "-q", NTP_SRV],
-    capture_output=True,
-    text=True
-)
-
-output = proc.stdout
-
-# Extraer valor
-m = re.search(r"[+-]\d+\.\d+", output)
-
-if not m:
+# Consultar Servidor NTP usando ntplib
+try:
+    ntp_client = ntplib.NTPClient()
+    response = ntp_client.request(NTP_SRV, version=4, timeout=5)
+    offset = response.offset      # diferencia (segundos)
+except Exception as e:
+    # Error consultando NTP → abandonar
+    print("Error consultando NTP:", e)
     exit(1)
 
-offset = float(m.group(0))
 abs_offset = abs(offset)
 
 # Comparar datos y generar mensaje
