@@ -116,7 +116,7 @@ Ejemplo de payload:
 ## 🚀 Apéndice: Opiniones No Solicitadas de Expertos Atemporales
 
 >[!Note]
->> Porque ninguna herramienta de sincronización temporal está completa sin la validación de figuras clave en la historia del tiempo (y del humor), aquí presentamos testimonios clasificados por su nivel de seriedad:
+> Porque ninguna herramienta de sincronización temporal está completa sin la validación de figuras clave en la historia del tiempo (y del humor), aquí presentamos testimonios clasificados por su nivel de seriedad:  
 >
 >> **📚 1. H. George Wells**  
 >> “El tiempo es frágil… medir el desvío es esencial.”    
