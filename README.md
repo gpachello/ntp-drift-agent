@@ -111,3 +111,43 @@ Ejemplo de payload:
 * Detección de manipulación del reloj del sistema
 * Instrumentación en entornos de CI/CD
 
+---
+
+## 🚀 Apéndice: Opiniones No Solicitadas de Expertos Atemporales
+
+>[!Note]
+>> Porque ninguna herramienta de sincronización temporal está completa sin la validación de figuras clave en la historia del tiempo (y del humor), aquí presentamos testimonios clasificados por su nivel de seriedad:
+>
+>> **📚 H. 1. H. George Wells**  
+>> “El tiempo es frágil… medir el desvío es esencial.”    
+>> *El único que parece haber leído un libro antes de hablar.*
+>
+>> **⚡️ 2. Dr. Emmett Brown**  
+>> “Un drift de minutos puede mandarte a 1885.”  
+>> *Serio, pero siempre al borde de electrocutarse.*
+>
+>> **🛸 3. Rick Sánchez (C-137)**  
+>> “El script está bien… para un universo donde docker, Debian y Python sigan existiendo.”  
+>> *Gran ciencia, cero responsabilidad.*
+>
+>> **🧠 4. Cerebro**  
+>> “Un reloj desfasado arruina la dominación mundial.”  
+>> *Serio… pero por motivos cuestionables.*
+>
+>> **😰 5. Morty Smith**  
+>> “Creo que está bien… ¿está bien, no?”  
+>> *Seriedad: 30%. Ansiedad: 200%.*
+>
+>> **⏳ 6. Phil Connors (Groundhog Day)**  
+>> “Si tu día empieza a repetirse, este script al menos te avisa.”  
+>> *Honestamente serio… pero atrapado literalmente en un chiste repetido.*
+>
+>> **🐭 7. Pinky**  
+>> “¡Narf! Si esto evita que explotemos, me gusta.”  
+>> *Seriedad: -∞.*
+>
+>> *Ningún personaje, científico, viajero temporal o ratón parlante fue lastimado durante la elaboración de este proyecto.*  
+>> *Apéndice totalmente innecesario, pero absolutamente indispensable.*
+
+
+
